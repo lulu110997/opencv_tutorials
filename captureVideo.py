@@ -1,22 +1,23 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 
-import numpy as np
 import cv2
 
 ########################## video playback from camera ##############################
 
-cap = cv2.VideoCapture(4) # Creates a video capture object that captures the video (ie camera object)
+# Creates a video capture object that captures the video (ie camera object)
+cap = cv2.VideoCapture(1)
 
-while(True):
+while True:
     # Capture frame-by-frame
-    ret, frame = cap.read() # ret returns a bool to see if frame is being correctly read
+    # ret returns a bool to see if frame is being correctly read
+    ret, frame = cap.read()
 
     # Our operations on the frame come here
     # Colour codes https://docs.opencv.org/master/d8/d01/group__imgproc__color__conversions.html
     code1 = cv2.cvtColor(frame, 1)
 
     # Display the resulting frame
-    cv2.imshow('frame',code1)
+    cv2.imshow('frame', code1)
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
 
